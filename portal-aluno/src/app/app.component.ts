@@ -8,10 +8,5 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'appito';
+  
 }
-// componente {
-//   um arquivo typescript
-//   um arquivo html
-//   um arquivo css
-// }
