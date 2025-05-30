@@ -1,0 +1,45 @@
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 28vw;
+  justify-self: center;
+  margin: 5% 15%;
+
+  &__dados-pessoais {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    &--campos-maiores {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    &--documentos {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+  }
+
+  &__dados-academicos {
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem;
+
+    mat-form-field {
+      width: 100% !important;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 1.25rem;
+  }
+}

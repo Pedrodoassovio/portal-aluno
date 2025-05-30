@@ -1,0 +1,22 @@
+.lista-alunos {
+  display: flex;
+  flex-direction: column;
+  margin: 12vh 15%;
+  align-content: center;
+
+  &__cadastrar-novo {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-bottom: 0.5rem;
+  }
+}
+
+mat-icon {
+  cursor: pointer;
+  margin: 0 0.25rem;
+}
+
+mat-icon:last-child {
+  color: rgb(245, 33, 33);
+}

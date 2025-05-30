@@ -1,0 +1,50 @@
+<form class="formulario" [formGroup]="formulario" (ngSubmit)="onSubmit()">
+  <div class="formulario__dados-pessoais">
+    <div class="formulario__dados-pessoais--campos-maiores">
+      <mat-form-field>
+        <mat-label>Nome</mat-label>
+        <input matInput formControlName="nome" />
+        <mat-error *ngIf="formulario.get('nome')?.hasError('required')">Nome é obrigatório</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" />
+        <mat-error *ngIf="formulario.get('email')?.hasError('required')">Email é obrigatório</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="formulario__dados-pessoais--documentos">
+      <mat-form-field>
+        <mat-label>CPF</mat-label>
+        <input matInput formControlName="cpf" />
+        <mat-error *ngIf="formulario.get('cpf')?.hasError('required')">CPF é obrigatório</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>RG</mat-label>
+        <input matInput formControlName="rg" />
+        <mat-error *ngIf="formulario.get('rg')?.hasError('required')">RG é obrigatório</mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="formulario__dados-academicos">
+    @if (tipoAcao === 'edicao') {
+    <mat-form-field>
+      <mat-label>Matricula</mat-label>
+      <input matInput formControlName="matricula" [disabled]="true" />
+    </mat-form-field>
+    }
+
+    <mat-form-field>
+      <mat-label>Curso</mat-label>
+      <input matInput formControlName="curso" />
+      <mat-error *ngIf="formulario.get('curso')?.hasError('required')">Curso é obrigatório</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="formulario__footer">
+    <button mat-button type="button" [disabled]="!formulario.dirty" (click)="formulario.reset()">Limpar
+      Formulário</button>
+    <button mat-raised-button color="primary" type="submit" [disabled]="formulario.invalid">Salvar</button>
+  </div>
+</form>

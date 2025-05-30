@@ -1,0 +1,49 @@
+<mat-card class="lancamento-nota">
+  <mat-card-header>
+    <mat-card-title>
+      <h3>Lançamento de Notas</h3>
+    </mat-card-title>
+    <mat-card-subtitle>
+      <span><b>Curso:</b> {{ aluno.curso }}</span> <br>
+      <span><b>Aluno:</b> {{ aluno.nome }}</span> <br>
+      <span><b>Matrícula:</b> {{ aluno.matricula }} </span>
+    </mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    @if (aluno.notas) {
+    <form [formGroup]="notasForm">
+      <div class="boletim">
+        <div class="boletim__cabecalho">
+          <span><b>Matéria:</b> {{ aluno!.notas[0]?.materia?.nome }}</span>
+          <span><b>Professor:</b> {{ aluno!.notas[0]!.materia?.professor?.nome }}</span>
+        </div>
+        <div class="boletim__notas">
+          <div>
+            <input type="number" min="0" max="10" maxlength="2" formControlName="nota1"
+              oninput="if(Number(this.value) > 10) this.value = 10; if(Number(this.value) < 0) this.value = 0;" />
+          </div>
+          <div>
+            <input type="number" min="0" max="10" maxlength="2" formControlName="nota2"
+              oninput="if(Number(this.value) > 10) this.value = 10; if(Number(this.value) < 0) this.value = 0;" />
+          </div>
+          <div>
+            <input type="number" min="0" max="10" maxlength="2" formControlName="nota3"
+              oninput="if(Number(this.value) > 10) this.value = 10; if(Number(this.value) < 0) this.value = 0;" />
+          </div>
+          <div>
+            <strong>Média:</strong>
+            <span>
+              {{ calcularMediaFinal(this.notasForm.get('nota1')?.value,this.notasForm.get('nota2')?.value,
+              this.notasForm.get('nota3')?.value) | number: '1.1-1' }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </form>
+    }
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button (click)="submeterNotas()">Submeter notas</button>
+  </mat-card-actions>
+</mat-card>

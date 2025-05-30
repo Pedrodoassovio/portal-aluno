@@ -1,4 +1,7 @@
+import { IMateria } from "./materia.interface";
+
 export interface ICurso {
-    nome: string
-    descricao: string;
+    id: number;
+    nome: string;
+    materias: IMateria[];
 }
