@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgStyle } from '@angular/common';
 import { Component, Inject, inject } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
@@ -59,7 +59,8 @@ export class LancamentoNotaComponent {
       return 0;
     }
 
-    return +((Number(n1) + Number(n2) + Number(n3)) / 3).toFixed(2);
+    this.mediaFinal = +((Number(n1) + Number(n2) + Number(n3)) / 3).toFixed(2);
+    return this.mediaFinal;
   }
   get notas(): FormArray {
     return this.notasForm.get('notas') as FormArray;

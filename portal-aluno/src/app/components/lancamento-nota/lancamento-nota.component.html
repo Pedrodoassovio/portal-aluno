@@ -33,7 +33,7 @@
           </div>
           <div>
             <strong>Média:</strong>
-            <span>
+            <span class="{{mediaFinal >= 7 ? 'aprovado' : 'reprovado'}}">
               {{ calcularMediaFinal(this.notasForm.get('nota1')?.value,this.notasForm.get('nota2')?.value,
               this.notasForm.get('nota3')?.value) | number: '1.1-1' }}
             </span>

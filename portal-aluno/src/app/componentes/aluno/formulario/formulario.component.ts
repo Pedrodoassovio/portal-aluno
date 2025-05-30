@@ -63,6 +63,13 @@ export class FormularioComponent implements OnInit {
   onSubmit() {
     if (this.formulario.invalid) return;
 
+    if (this.tipoAcao === 'edicao') {
+      this._snackBar.open('Edição de aluno não implementada.', 'Fechar', {
+        duration: 4000
+      });
+      return;
+    }
+
     this._alunoService.criar(this.formulario.value).subscribe({
       next: (aluno: IAluno) => {
         this._snackBar.open(`Aluno ${aluno.nome} criado com sucesso!`, 'Fechar', {
